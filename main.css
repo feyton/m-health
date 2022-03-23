@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: "Lexend";
+}
+
+.chat-bubble {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin: 4rem;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1000;
+
+}
+.pointer {
+    cursor: pointer;
+}
+.chat-bubble img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: bounce 3s linear 1s infinite;
+}
+
+.nav-link {
+    font-family: "Lexend";
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-family: 'Lexend';
+    flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-image: linear-gradient(rgba(24, 53, 53, 0.774), rgba(28, 59, 88, 0.623)), url("https://www.readingeagle.com/wp-content/uploads/2022/01/LIFE-SELF-MENTALHEALTH-TIPS-DMT.jpg?w=1024");
+
+}
+
+.badge-notification {
+    position: absolute;
+    top: 0px;
+    padding: 3px;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+}
+
+.hero img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.hero .text {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50% -50%);
+    margin-left: 20%;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.contain {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-family: 'Lexend';
+    color: rgb(79, 79, 173);
+}
+
+.category {
+    position: absolute !important;
+    right: 0px;
+    background: rgb(18, 81, 97);
+    width: fit-content;
+    top: -15px;
+    right: 5px;
+    border-radius: 10px;
+    padding: .2rem 1rem;
+    color: white;
+}
+
+.forum-post {
+    font-family: "Lexend";
+    border-radius: 10px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.commentor-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding-top: 1rem;
+}
+
+.commentor-div li img {
+    height: 40px;
+    width: 30px;
+    object-fit: contain;
+}
+
+.forum-post {
+    margin-bottom: 20px;
+}
+
+.forum-post h3 {
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0% {
+        padding-bottom: 5px;
+    }
+
+    100% {
+        padding-bottom: 0px;
+    }
+}
+
+
+.indicator {
+    content: "";
+    height: 10px;
+
+    width: 10px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.categories li {
+    cursor: pointer;
+}
+
+.categories li div {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.indicator.primary::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 255, 0.24);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.indicator.orange::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(169, 202, 21, 0.445);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.indicator.favorite::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(188, 199, 28, 0.712);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.indicator.danger::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 102, 0, 0.24);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.indicator.new::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(5, 109, 28, 0.548);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.indicator.good::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(97, 17, 73, 0.24);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.side-menu {
+    font-family: "Lexend";
+}
+
+@media screen and (max-width: 500px){
+    .avatar {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+
+      
+    }
+
+}

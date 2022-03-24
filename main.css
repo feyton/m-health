@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&display=swap');
+
+:root {
+    --main-font: 'Lexend', sans-serif;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
     padding: 0;
-    font-family: "Lexend";
+    font-family: var(--main-font);
 }
 
 .chat-bubble {
@@ -16,9 +22,11 @@
     z-index: 1000;
 
 }
+
 .pointer {
     cursor: pointer;
 }
+
 .chat-bubble img {
     width: 100%;
     height: 100%;
@@ -42,6 +50,46 @@
 
 }
 
+.second-div {
+    height: 100vh;
+    margin: 2rem 0rem;
+    display: flex;
+    justify-content: center;
+    font-family: 'Lexend';
+    flex-direction: column;
+    position: relative;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-image: url("https://feyton.co.rw/static/images/details-1-office-worker.svg");
+
+}
+
+.third-div {
+    height: 100vh;
+    margin: 2rem 0rem;
+    display: flex;
+    justify-content: center;
+    font-family: 'Lexend';
+    flex-direction: column;
+    position: relative;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-image: url("https://feyton.co.rw/static/images/testimonials-2-men-talking.svg");
+
+}
+.text-right {
+    float: right;
+    justify-self: right;
+    justify-content: right;
+    width: 50%;
+    flex-direction: column;
+    margin-left: 50%;
+    text-align: center;
+    padding: 0rem 3rem;
+    font-weight: "bold";
+}
 .badge-notification {
     position: absolute;
     top: 0px;
@@ -57,12 +105,24 @@
     object-fit: cover;
 
 }
-
+.active {
+    color: rgb(50, 50, 129);
+    font-weight: bold;
+}
+.font-bold {
+    font-weight: bold;
+}
+.no-decoration {
+    text-decoration: none;
+}
 .hero .text {
     position: absolute;
     top: 50%;
     transform: translate(-50% -50%);
-    margin-left: 20%;
+    margin-left: 2rem;
+    font-weight: bolder;
+    color: rgb(2, 2, 32);
+    font-family: var(--main-font);
 }
 
 ul li {
@@ -214,13 +274,13 @@ ul li {
     font-family: "Lexend";
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
     .avatar {
         width: 50px;
         height: 50px;
         display: inline-block;
 
-      
+
     }
 
 }

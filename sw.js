@@ -1,69 +1,68 @@
-// self.addEventListener("install", (e) => {
-//   e.waitUntil(
-//     caches.open("sw-cache").then((cache) => {
-//       return cache.add("index.html", "main.css", "forum.html");
-//     })
-//   );
-// });
+var GH_PATH = "/m-spaces";
+var APP_PREFIX = "spaces";
 
-// self.addEventListener("fetch", (e) => {
-//   e.respondWith(
-//     caches.match(e.request).then((res) => {
-//       return res || fetch(e.request);
-//     })
-//   );
-// });
+var VERSION = "v1.2";
 
-if (!"undefined" === typeof window) {
-  importScripts(
-    "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js"
+var URLS = [
+  `${GH_PATH}`,
+  `${GH_PATH}/index.html`,
+  `${GH_PATH}/forum.html`,
+  `${GH_PATH}/main.css`,
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
+  "https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js",
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js",
+  "https://account.snatchbot.me/script.js",
+  "https://www.readingeagle.com/wp-content/uploads/2022/01/LIFE-SELF-MENTALHEALTH-TIPS-DMT.jpg?w=1024",
+  "https://feyton.co.rw/static/images/testimonials-2-men-talking.svg",
+  "https://feyton.co.rw/static/images/details-1-office-worker.svg",
+  "https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&display=swap",
+  "https://res.cloudinary.com/feyton/image/upload/v1643272521/user_nophzu.png",
+];
+
+var CACHE_NAME = APP_PREFIX + VERSION;
+self.addEventListener("fetch", function (e) {
+  console.log("Fetch request sent: ", e.request.url);
+  e.respondWith(
+    caches
+      .match(e.request)
+      .then(function (request) {
+        if (request) {
+          console.log("Responding with cache: ", e.request.url);
+          return request;
+        } else {
+          console.log("File is not cached: ", e.request.url);
+          return fetch(e.request);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   );
-}
+});
 
-if (workbox) {
-  console.log("Yay! Workbox is loaded !");
-  workbox.precaching.precacheAndRoute(
-    []
-  ); /*  cache images in the e.g others folder; edit to other folders you got
-   and config in the sw-config.js file
-    */
-  workbox.routing.registerRoute(
-    /(.*)others(.*)\.(?:png|gif|jpg)/,
-    new workbox.strategies.CacheFirst({
-      cacheName: "images",
-      plugins: [
-        new workbox.expiration.Plugin({
-          maxEntries: 50,
-          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
-        }),
-      ],
+self.addEventListener("install", function (e) {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(function (cache) {
+      console.log("Installing caches: ", CACHE_NAME);
+      return cache.addAll(URLS);
     })
   );
-  /* Make your JS and CSS âš¡ fast by returning the assets from the cache,
-  while making sure they are updated in the background for the next use.
-  */
-  workbox.routing.registerRoute(
-    // cache js, css, scc files
-    /.*\.(?:css|js|scss|)/,
-    // use cache but update in the background ASAP
-    new workbox.strategies.StaleWhileRevalidate({
-      // use a custom cache name
-      cacheName: "assets",
-    })
-  ); // cache google fonts
-  workbox.routing.registerRoute(
-    new RegExp("https://fonts.(?:googleapis|gstatic).com/(.*)"),
-    new workbox.strategies.CacheFirst({
-      cacheName: "google-fonts",
-      plugins: [
-        new workbox.cacheableResponse.Plugin({
-          statuses: [0, 200],
-        }),
-      ],
+});
+
+self.addEventListener("activate", function (e) {
+  e.waitUntil(
+    caches.keys().then(function (keyList) {
+      var cacheWhitelist = keyList.filter(function (key) {
+        return key.indexOf(APP_PREFIX);
+      });
+      cacheWhitelist.push(CACHE_NAME);
+      return Promise.all(
+        keyList.map(function (key, i) {
+          console.log("Deleting cache: ", keyList[i]);
+          return caches.delete(keyList[i]);
+        })
+      );
     })
   );
-  workbox.core.skipWaiting();
-  workbox.core.clientsClaim();
-} else {
-  console.log("Oops! Workbox didn't load ðŸ‘º");
-}
+});

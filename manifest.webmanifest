@@ -1,0 +1,31 @@
+{
+    "short_name": "M-SPACES",
+    "name": "Mental Health Spaces",
+    "scope": "/m-spaces/",
+    "icons": [{
+        "src": "/m-spaces/img/icons/android-icon-72x72.png",
+        "type": "image/png",
+        "sizes": "72x72"
+
+    }, {
+        "src": "/m-spaces/img/icons/android-icon-96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    }, {
+        "src": "/m-spaces/img/icons/apple-icon-120x120.png",
+        "type": "image/png",
+        "sizes": "120x120"
+    }, {
+        "src": "/m-spaces/img/icons/android-icon-144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+    }, {
+        "src": "/m-spaces/img/icons/ms-icon-310x310.png",
+        "type": "image/png",
+        "sizes": "310x310"
+    }],
+    "start_url": "/m-spaces/",
+    "background_color": "#000",
+    "display": "standalone",
+    "theme_color": "#ffff00"
+}

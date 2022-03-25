@@ -1,6 +1,6 @@
 {
-    "short_name": "M-SPACES",
-    "name": "Mental Health Spaces",
+    "short_name": "M-SPACE",
+    "name": "My Mental Space",
     "scope": "/m-spaces/",
     "icons": [{
         "src": "/m-spaces/img/icons/android-icon-72x72.png",

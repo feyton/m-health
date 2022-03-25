@@ -1,7 +1,7 @@
 var GH_PATH = "/m-spaces";
 var APP_PREFIX = "spaces";
 
-var VERSION = "v1.2";
+var VERSION = "v1.3";
 
 var URLS = [
   `${GH_PATH}`,
